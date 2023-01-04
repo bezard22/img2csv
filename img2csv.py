@@ -2,7 +2,12 @@ import os
 import argparse
 import cv2
 
-def parseArgs():
+def parseArgs() -> None:
+    """Parse command line arguments, perfrom error checking, return dict containgin args.
+
+    :raises SystemExit: srs file not found
+    :raises SystemExit: dst file alreadu exists
+    """    
     parser = argparse.ArgumentParser(prog="img2csv", description="convert an image to a csv")
 
     parser.add_argument("src", help="Path to file containing image")
@@ -20,7 +25,18 @@ def parseArgs():
 
     return args
 
-def convert(img, mode, sep):
+def convert(img, mode: str, sep: str):
+    """Convert provided image to a csv string.
+
+    :param img: image to be converted
+    :type img: cv2.image
+    :param mode: color mode
+    :type mode: str
+    :param sep: delimiter for csv file
+    :type sep: str
+    :return: csv string representation of image
+    :rtype: str
+    """    
     imgString = ""
 
     if mode == "RGB":
@@ -50,6 +66,8 @@ def reverse():
     pass
 
 def main():
+    """main function, parses command line arguments and executes img to csv conversion.
+    """    
     args = parseArgs()
     # if args["reverse"]:
     #     pass
