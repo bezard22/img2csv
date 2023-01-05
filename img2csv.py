@@ -66,8 +66,7 @@ def reverse():
     pass
 
 def main():
-    """main function, parses command line arguments and executes img to csv conversion.
-    """    
+    """main function, parses command line arguments and executes img to csv conversion."""    
     args = parseArgs()
     # if args["reverse"]:
     #     pass
